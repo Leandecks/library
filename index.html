@@ -8,7 +8,43 @@
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
+
+  <div class="dialog-wrapper">
+    <dialog role="dialog" aria-modal="true">
+      <form>
+        <h3>New Book</h3>
+        <label for="title">
+          Title:
+          <input type="text" name="title" id="title">
+        </label>
+        <label for="author">
+          Author:
+          <input type="text" name="author" id="author">
+        </label>
+        <label for="pages">
+          Pages:
+          <input type="number" name="pages" id="pages">
+        </label>
+        <label for="is-read">
+          Have you read it?
+          <input type="checkbox" name="is-read" id="is-read">
+        </label>
+      </form>
+      <div class="buttons">
+        <button type="submit" class="submit">Create</button>
+        <button type="reset" class="close">Cancel</button>
+      </div>
+    </dialog>
+  </div>
   
+  <div class="top">
+    <h1>Library</h1>
+    <button type="button" class="open">Add Book</button>
+  </div>
+
+  <div class="display">
+    <div class="book" id="invisible-book"></div>
+  </div>
 
   <script src="library.js"></script>
 </body>
