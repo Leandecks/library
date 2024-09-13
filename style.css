@@ -92,7 +92,6 @@ button.open:hover {
 .book {
   width: 15rem;
   background-color: var(--font);
-  color: var(--bg);
   padding: 1rem;
   border-radius: .5rem;
   font-size: 1.5rem;
