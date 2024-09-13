@@ -43,11 +43,55 @@ closeModalButton.addEventListener("click", () => {
 });
 
 submit.addEventListener("click", () => {
-  let currentBook = new Book(titleInput.value, authorInput.value, pagesInput.value, isReadInput.checked);
-  clearInput();
-  addBookToLibrary(currentBook);
-  output();
+  const isValid = validateInput();
+  if (isValid) {
+    let currentBook = new Book(titleInput.value, authorInput.value, pagesInput.value, isReadInput.checked);
+    clearInput();
+    addBookToLibrary(currentBook);
+    output();
+  }
 });
+
+// Validation
+
+function validateInput () {
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("Title can't be empty!");
+    return false
+  } else {
+    titleInput.setCustomValidity("");
+  }
+
+  if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity("Author can't be empty!");
+    return false
+  } else {
+    authorInput.setCustomValidity("");
+  }
+
+  if (pagesInput.validity.valueMissing) {
+    pagesInput.setCustomValidity("Pages can't be empty!");
+    return false
+  } else {
+    pagesInput.setCustomValidity("");
+  }
+
+  if (pagesInput.validity.badInput) {
+    pagesInput.setCustomValidity("This needs to be a number!");
+    return false;
+  } else {
+    pagesInput.setCustomValidity("");
+  }
+
+  if (pagesInput.validity.rangeUnderflow) {
+    pagesInput.setCustomValidity("Pages needs to be at least 1!");
+    return false;
+  } else {
+    pagesInput.setCustomValidity("");
+  }
+
+  return true;
+}
 
 // Loop through library and output
 

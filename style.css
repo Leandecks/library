@@ -222,5 +222,8 @@ dialog button.close:hover {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 1rem;
+}
+
+input:invalid {
+  border: 1px solid red;
 }
